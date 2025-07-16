@@ -1,0 +1,180 @@
+/* Global */
+body {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+:root {
+  --dark-green-text-color: rgb(39, 117, 53);
+  --green-text-color: rgb(56, 169, 77);
+  --green-text-shadow-color: rgb(118, 234, 120);
+
+  --light-green-text-color: rgb(174, 237, 175);
+
+  --garden-border-color: rgb(37, 118, 37);
+  --garden-border-shadow-color: rgb(118, 234, 120);
+
+  --grass-color: rgb(87, 217, 87);
+}
+
+/*
+  Question
+*/
+.question {
+  display: flex;
+  flex-direction: column;
+}
+
+.question > h2 {
+  color: rgb(39, 117, 53);
+  text-shadow: 1px 1px 10px rgb(118, 234, 120);
+}
+
+.question > p {
+  margin-left: 2rem;
+  font-style: italic;
+}
+
+/*
+ Input Section
+ */
+.input-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-section > :first-child {
+  width: 5rem;
+  text-align: left;
+}
+
+.input-section > :nth-child(2) {
+  width: 9rem;
+  height: 2rem;
+
+  border-style: inset;
+  border-width: 2px;
+  border-color: var(--grass-color);
+  background-color: white;
+  text-align: center;
+}
+
+.input-section > :last-child {
+  width: 5rem;
+  text-align: right;
+}
+
+/* 
+  Utility  classes 
+*/
+
+.dark-green-text {
+  color: var(--dark-green-text-color);
+  text-shadow: 1px 1px 10px var(--green-text-shadow-color);
+}
+
+.green-text {
+  color: var(--green-text-color);
+  text-shadow: 1px 1px 10px var(--green-text-shadow-color);
+}
+
+.green-gradient-bg {
+  background: linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 1%,
+    rgb(140, 255, 138) 70%,
+    rgb(123, 255, 0) 95%
+  );
+}
+
+.garden-padding {
+  padding: 0.5rem;
+}
+
+.garden-border {
+  border-style: dotted;
+  border-width: 2px;
+  border-color: var(--garden-border-color);
+  box-shadow: 1px 1px 10px var(--garden-border-shadow-color);
+
+  box-shadow: 0 0 0 10px var(--grass-color),
+    calc(100% - 10px) 0 0 10px var(--grass-color),
+    0 calc(100% - 10px) 0 10px var(--grass-color),
+    calc(100% - 10px) calc(100% - 10px) 0 10px var(--grass-color);
+}
+
+.garden-divider {
+  border-style: dotted;
+  border-width: 2px;
+  border-color: var(--grass-color);
+}
+
+.grass-pixel-art {
+  box-shadow: 10px 8px 0 0 var(--grass-color), 14px 8px 0 0 var(--grass-color),
+    6px 10px 0 0 var(--grass-color), 12px 10px 0 0 var(--grass-color),
+    8px 12px 0 0 var(--grass-color), 12px 12px 0 0 var(--grass-color),
+    10px 14px 0 0 var(--grass-color), 28px 18px 0 0 var(--grass-color),
+    18px 20px 0 0 var(--grass-color), 26px 20px 0 0 var(--grass-color),
+    18px 22px 0 0 var(--grass-color), 24px 22px 0 0 var(--grass-color),
+    20px 24px 0 0 var(--grass-color), 22px 24px 0 0 var(--grass-color),
+    26px 24px 0 0 var(--grass-color), 22px 26px 0 0 var(--grass-color);
+  height: 2px;
+  width: 2px;
+  z-index: -1;
+}
+
+.grass-field {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.grass-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px dotted var(--grass-color);
+  height: 100%;
+  width: 100%;
+  min-height: 3rem;
+  overflow: hidden;
+}
+
+.wide-block {
+  grid-column: span 2;
+}
+
+.tall-block {
+  grid-row: span 2;
+}
+
+.special-block {
+  background-color: var(--light-green-text-color);
+}
+
+.participant-text {
+  animation: fadeIn 0.5s ease-in,
+    spin 8s ease-in-out infinite var(--spin-delay, 0.5s);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  20%,
+  100% {
+    transform: rotateY(360deg);
+  }
+}
