@@ -26,15 +26,15 @@
           </div>
           <div class="question">
             <h2>我需要带什么？</h2>
-            <p>充满电的电脑，和适合在草坪上的东西</p>
+            <p>带上充好电的电脑，还有适合在草地上用的东西</p>
           </div>
           <div class="question">
             <h2>什么时候？</h2>
             <p>2025年8月1日，下午4点30分</p>
           </div>
           <div class="question">
-            <h2>具体在哪里?</h2>
-            <p>详细地址在微信群里公布</p>
+            <h2>具体在哪里？</h2>
+            <p>详细地点会在报名后通过邮件发送微信群二维码，进群后公布</p>
           </div>
           <div class="question">
             <h2>谁在举办这次活动？</h2>
@@ -49,7 +49,7 @@
           <div class="question">
             <h2>我不在上海，我的城市有活动吗？</h2>
             <p>
-              看看
+              可以看看
               <a href="https://html.energy/events.html" class="underline"
                 >html energy 活动网站</a
               >. 如果你所在的城市不在其中, 欢迎组织自己的活动!
@@ -73,7 +73,10 @@
           </div>
           <div class="question">
             <h2>Where exactly?</h2>
-            <p>specific location announced in wechat group</p>
+            <p>
+              specific location announced in wechat group (QR code sent via
+              email after joining)
+            </p>
           </div>
           <div class="question">
             <h2>Who is running this?</h2>
@@ -216,7 +219,11 @@
         console.log('New RSVP:', newRSVP);
         ALL_PARTICIPANTS.push(newRSVP);
         updateGrassBlocks(ALL_PARTICIPANTS);
+        alert(
+          `加入成功 / RSVP submitted successfully.\n\n请检查您的邮箱，您将收到一封包含微信群二维码的邮件。\nPlease check your email, you will receive an email with WeChat group QR code.\n\n如果没收到，请查看垃圾邮件。\nIf not received, please check your SPAM folder.`
+        );
       } catch (error) {
+        alert(`加入失败，请重试。\nFailed to submit RSVP, please try again.`);
         console.error('Failed to submit RSVP:', error);
       }
     }
