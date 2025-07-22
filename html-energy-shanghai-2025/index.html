@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="libs/tailwind.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/cloud-sm.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>HTML Day 2025 Shanghai</title>
+  </head>
+
+  <body class="green-gradient-bg w-screen min-h-screen">
+    <div
+      class="px-2 py-4 sm:p-6 md:p-8 lg:p-16 flex flex-col lg:flex-row gap-8 align-center"
+    >
+      <!-- Left Side -->
+      <section class="flex flex-col gap-6 green-text max-w-md m-auto">
+        <!-- TITLE -->
+        <h1 class="text-xl font-bold">HTML Day 2025 Shanghai</h1>
+
+        <!-- 中文介绍 CHN Description -->
+        <section class="flex flex-col gap-2 garden-border garden-padding">
+          <div class="question">
+            <h2>这是什么？</h2>
+            <p>一年一度的在公园里一起写网页的活动</p>
+          </div>
+          <div class="question">
+            <h2>我需要带什么？</h2>
+            <p>带上充好电的电脑，适合在草地上用的东西，还有基本的html能力。</p>
+          </div>
+          <div class="question">
+            <h2>什么时候？</h2>
+            <p>2025年8月1日，下午4点30分</p>
+          </div>
+          <div class="question">
+            <h2>具体在哪里？</h2>
+            <p>详细地点会在报名后通过邮件发送微信群二维码，进群后公布</p>
+          </div>
+          <div class="question">
+            <h2>谁在举办这次活动？</h2>
+            <p>
+              <a class="underline" href="https://www.instagram.com/rect_repair/"
+                >修四边形</a
+              >
+              + shengli +
+              <a class="underline" href="https://www.yufengzhao.com/">yufeng</a>
+            </p>
+          </div>
+          <div class="question">
+            <h2>我不在上海，我的城市有活动吗？</h2>
+            <p>
+              可以看看
+              <a href="https://html.energy/events.html" class="underline"
+                >html energy 活动网站</a
+              >. 如果你所在的城市不在其中, 欢迎组织自己的活动!
+            </p>
+          </div>
+        </section>
+
+        <!-- 英文介绍 EN Description -->
+        <section class="flex flex-col gap-2 garden-border garden-padding">
+          <div class="question">
+            <h2>What is this?</h2>
+            <p>a yearly event where we write HTML together in a park</p>
+          </div>
+          <div class="question">
+            <h2>What should I bring?</h2>
+            <p>a charged computer, friends, good energy and basic html skills.</p>
+          </div>
+          <div class="question">
+            <h2>When is it happening?</h2>
+            <p>August 1st, 2025, 4:30pm</p>
+          </div>
+          <div class="question">
+            <h2>Where exactly?</h2>
+            <p>
+              specific location announced in wechat group (QR code sent via
+              email after joining)
+            </p>
+          </div>
+          <div class="question">
+            <h2>Who is running this?</h2>
+            <p>
+              <a href="https://www.instagram.com/rect_repair/" class="underline"
+                >[[rect*]]repair</a
+              >
+              + shengli +
+              <a class="underline" href="https://www.yufengzhao.com/">yufeng</a>
+            </p>
+          </div>
+          <div class="question">
+            <h2>I'm not in Shanghai, is there an event in my city?</h2>
+            <p>
+              check out the
+              <a href="https://html.energy/events.html" class="underline"
+                >html energy events page</a
+              >. If your city isn't listed, feel free to organize your own!
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <!-- Right Side -->
+      <section
+        class="flex flex-col gap-6 lg:col-span-1 lg:row-span-1 w-full align-center"
+      >
+        <!-- 报名表单 -->
+        <section class="max-w-md green-text m-auto lg:m-0">
+          <form id="rsvp-form" class="flex flex-col gap-2">
+            <fieldset class="garden-border px-4 pb-2">
+              <legend class="px-2 dark-green-text text-center">
+                <span>*･｡.★ 加入公园 .:*･ﾟ Join the park .:*･ﾟ★</span>
+              </legend>
+              <div class="input-section">
+                <div>邮箱 →</div>
+                <input
+                  type="email"
+                  id="email-input"
+                  placeholder="✧･ﾟ: *✧･ﾟ:* "
+                  required
+                />
+                <div>← Email</div>
+              </div>
+              <div class="input-section">
+                <div>名字 →</div>
+                <input
+                  type="text"
+                  id="name-input"
+                  placeholder="⋆｡°✩ ⋆｡°✩"
+                  required
+                />
+                <div>← Name</div>
+              </div>
+
+              <div class="input-section">
+                <div>来吗？ →</div>
+                <select id="rsvp-status" class="w-42" required>
+                  <option value="">咋说? / Yeah?</option>
+                  <option value="Going">确定会来/ Going</option>
+                  <option value="Maybe">可能来 / Maybe</option>
+                  <option value="Can't come">不能来 / Can't come</option>
+                </select>
+                <div>← Come?</div>
+              </div>
+              <hr class="my-4 garden-divider" />
+              <div
+                class="flex flex-row justify-between items-center mb-2 dark-green-text"
+              >
+                <div>｀、ヽ｀、<span class="hidden lg:inline">ヽ｀</span></div>
+                <button
+                  type="submit"
+                  id="submit-button"
+                  class="cursor-pointer bg-gray-100 hover:bg-gray-200 border-2 border-gray-300 border-dashed w-38"
+                >
+                  提交 / Submit
+                </button>
+                <div class="-scale-100">
+                  ｀、ヽ｀、<span class="hidden lg:inline">ヽ｀</span>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+
+        <!-- 草坪 Grass field -->
+        <div class="grass-field w-full h-full garden-border"></div>
+      </section>
+    </div>
+  </body>
+
+  <!-- Functions -->
+  <script>
+    const API_BASE_URL = 'https://html-energy-sh-2025.val.run';
+    const ALL_PARTICIPANTS = [];
+    const PARTICIPANT_EMAIL_INDICES_MAP = {};
+
+    async function fetchRSVPs() {
+      try {
+        const response = await fetch(`${API_BASE_URL}/rsvps`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const allRSVPs = await response.json();
+        console.log('Fetched RSVPs:', allRSVPs);
+        ALL_PARTICIPANTS.push(...allRSVPs);
+      } catch (error) {
+        console.error('Failed to fetch RSVPs:', error);
+        // Fallback to existing hardcoded names if API fails
+        console.log('Using fallback data');
+      }
+    }
+
+    async function handleRSVPSubmission(event) {
+      event.preventDefault();
+      const email = document.getElementById('email-input').value.trim();
+      const name = document.getElementById('name-input').value.trim();
+      const color = '#000000';
+      const rsvpStatus = document.getElementById('rsvp-status').value;
+
+      const rsvpData = {
+        Email: email,
+        Name: name,
+        Color: color,
+        RSVP: rsvpStatus,
+      };
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/rsvps`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(rsvpData),
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const newRSVP = await response.json();
+        console.log('New RSVP:', newRSVP);
+        ALL_PARTICIPANTS.push(newRSVP);
+        updateGrassBlocks(ALL_PARTICIPANTS);
+        alert(
+          `加入成功 / RSVP submitted successfully.\n\n请检查您的邮箱，您将收到一封包含微信群二维码的邮件。\nPlease check your email, you will receive an email with WeChat group QR code.\n\n如果没收到，请查看垃圾邮件。\nIf not received, please check your SPAM folder.`
+        );
+      } catch (error) {
+        alert(`加入失败，请重试。\nFailed to submit RSVP, please try again.`);
+        console.error('Failed to submit RSVP:', error);
+      }
+    }
+
+    function placeRandomGrass(count) {
+      const OPACITY_RANGE = [0.2, 0.8];
+      const HORIZONTAL_STEPS = 50;
+      const VERTICAL_STEPS = 20;
+      for (let i = 0; i < count; i++) {
+        const grass = document.createElement('div');
+        grass.className = 'grass-pixel-art';
+        grass.style.position = 'absolute';
+        grass.style.left =
+          Math.floor(Math.random() * HORIZONTAL_STEPS) * 2 + '%'; // 50 horizontal steps
+        grass.style.top = Math.floor(Math.random() * VERTICAL_STEPS) * 5 + '%'; // 20 vertical steps
+        grass.style.opacity =
+          Math.random() * (OPACITY_RANGE[1] - OPACITY_RANGE[0]) +
+          OPACITY_RANGE[0]; // Random opacity between 0.5 and 1
+        document.body.appendChild(grass);
+      }
+    }
+
+    function insertGrassBlocks(count) {
+      const blocksToInsert = [];
+
+      const locationBlock = document.createElement('div');
+      locationBlock.className =
+        'grass-block wide-block special-block green-text';
+      locationBlock.textContent = '中山公园 Zhongshan Park';
+
+      const timeBlock = document.createElement('div');
+      timeBlock.className = 'grass-block wide-block special-block green-text';
+      timeBlock.textContent = 'August 1, 2025 16:30-19:00 (tentative)';
+
+      blocksToInsert.push(locationBlock);
+      for (let i = 0; i < count - 4; i++) {
+        const grassBlock = document.createElement('div');
+        grassBlock.className = 'grass-block';
+        blocksToInsert.push(grassBlock);
+      }
+      blocksToInsert.push(timeBlock);
+
+      const grassField = document.querySelector('.grass-field');
+
+      blocksToInsert.forEach((block) => {
+        grassField.appendChild(block);
+      });
+    }
+
+    function updateGrassBlocks(participants) {
+      const grassField = document.querySelector('.grass-field');
+      const grassBlocks = grassField.querySelectorAll(
+        '.grass-block:not(.special-block)'
+      );
+      // Randomly pick indices for each participant
+      // and make sure no index is repeated
+      const randomizedIndices = [];
+      const existingIndices = Object.values(PARTICIPANT_EMAIL_INDICES_MAP);
+
+      for (const participant of participants) {
+        // Skip if email already has an assigned index
+        if (PARTICIPANT_EMAIL_INDICES_MAP[participant.Email] !== undefined) {
+          continue;
+        }
+
+        // Keep trying until we find an unused index
+        while (true) {
+          const randomIndex = Math.floor(Math.random() * grassBlocks.length);
+          if (
+            !randomizedIndices.includes(randomIndex) &&
+            !existingIndices.includes(randomIndex)
+          ) {
+            randomizedIndices.push(randomIndex);
+            // Update map with new index
+            PARTICIPANT_EMAIL_INDICES_MAP[participant.Email] = randomIndex;
+            break;
+          }
+        }
+      }
+
+      // Update grass blocks
+      participants.forEach((participant) => {
+        const index = PARTICIPANT_EMAIL_INDICES_MAP[participant.Email];
+
+        const participantText = document.createElement('div');
+        participantText.className = 'participant-text px-4 green-text';
+        participantText.innerHTML = participant.Name;
+        let initialRotation;
+        do {
+          initialRotation = Math.random() * 30 - 15; // Random between -30 and +30
+        } while (initialRotation >= -5 && initialRotation <= 5);
+
+        participantText.style.rotate = `${initialRotation}deg`;
+        const randomDelay = Math.random() * 5; // Random float between 1 and 5
+        participantText.style.setProperty('--spin-delay', `${randomDelay}s`);
+
+        if (grassBlocks[index].children.length > 0) {
+          // Replace existing content
+          grassBlocks[index].children[0].innerHTML = participant.Name;
+        } else {
+          grassBlocks[index].appendChild(participantText);
+        }
+      });
+    }
+  </script>
+
+  <!-- Setup -->
+  <script>
+    window.addEventListener('load', async () => {
+      placeRandomGrass(100);
+
+      const specialElements = [];
+      insertGrassBlocks(36);
+
+      await fetchRSVPs();
+      console.log(ALL_PARTICIPANTS);
+      updateGrassBlocks(ALL_PARTICIPANTS);
+    });
+
+    document
+      .getElementById('submit-button')
+      .addEventListener('click', handleRSVPSubmission);
+  </script>
+</html>
