@@ -1,4 +1,18 @@
 /* Global */
+h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  background: linear-gradient(to bottom, white, var(--light-green-text-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.7),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 40px rgba(255, 255, 255, 0.3);
+}
+
 body {
   font-family: 'Times New Roman', Times, serif;
 }
