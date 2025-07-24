@@ -26,7 +26,9 @@
           </div>
           <div class="question">
             <h2>我需要带什么？</h2>
-            <p>带上充好电的电脑，还有适合在草地上用的东西，还有一些基础html知识。</p>
+            <p>
+              带上充好电的电脑，还有适合在草地上用的东西，还有一些基础html知识。
+            </p>
           </div>
           <div class="question">
             <h2>什么时候？</h2>
@@ -65,7 +67,10 @@
           </div>
           <div class="question">
             <h2>What should I bring?</h2>
-            <p>a charged computer, friends, good energy, and some basic html skills.</p>
+            <p>
+              a charged computer, friends, good energy, and some basic html
+              skills.
+            </p>
           </div>
           <div class="question">
             <h2>When is it happening?</h2>
@@ -217,7 +222,20 @@
         }
         const newRSVP = await response.json();
         console.log('New RSVP:', newRSVP);
-        ALL_PARTICIPANTS.push(newRSVP);
+
+        if (
+          ALL_PARTICIPANTS.some(
+            (participant) => participant.Email === newRSVP.Email
+          )
+        ) {
+          const index = ALL_PARTICIPANTS.findIndex(
+            (participant) => participant.Email === newRSVP.Email
+          );
+          ALL_PARTICIPANTS[index] = newRSVP;
+        } else {
+          ALL_PARTICIPANTS.push(newRSVP);
+        }
+
         updateGrassBlocks(ALL_PARTICIPANTS);
         alert(
           `加入成功 / RSVP submitted successfully.\n\n请检查您的邮箱，您将收到一封包含微信群二维码的邮件。\nPlease check your email, you will receive an email with WeChat group QR code.\n\n如果没收到，请查看垃圾邮件。\nIf not received, please check your SPAM folder.`
@@ -274,6 +292,11 @@
     }
 
     function updateGrassBlocks(participants) {
+      participants = participants.filter(
+        (participant) =>
+          participant.RSVP === 'Going' || participant.RSVP === 'Maybe'
+      );
+
       const grassField = document.querySelector('.grass-field');
       const grassBlocks = grassField.querySelectorAll(
         '.grass-block:not(.special-block)'
@@ -301,6 +324,20 @@
             PARTICIPANT_EMAIL_INDICES_MAP[participant.Email] = randomIndex;
             break;
           }
+        }
+      }
+
+      console.log(
+        'PARTICIPANT_EMAIL_INDICES_MAP:',
+        PARTICIPANT_EMAIL_INDICES_MAP
+      );
+      console.log('participants:', participants);
+      // if any email in PARTICIPANT_EMAIL_INDICES_MAP is not in participants, remove it
+      for (const email in PARTICIPANT_EMAIL_INDICES_MAP) {
+        if (!participants.some((participant) => participant.Email === email)) {
+          console.log('Removing email:', email);
+          grassBlocks[PARTICIPANT_EMAIL_INDICES_MAP[email]].innerHTML = '';
+          delete PARTICIPANT_EMAIL_INDICES_MAP[email];
         }
       }
 
