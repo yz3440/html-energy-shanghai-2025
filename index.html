@@ -271,15 +271,15 @@
 
     function placeRandomRain(count) {
       const OPACITY_RANGE = [0.1, 0.2];
-      const HORIZONTAL_STEPS = 50;
-      const VERTICAL_STEPS = 20;
+      const HORIZONTAL_STEPS = 25;
+      const VERTICAL_STEPS = 10;
       for (let i = 0; i < count; i++) {
         const rain = document.createElement('div');
         rain.className = 'rain-pixel-art';
         rain.style.position = 'absolute';
         rain.style.left =
-          Math.floor(Math.random() * HORIZONTAL_STEPS) * 2 + '%'; // 50 horizontal steps
-        rain.style.top = Math.floor(Math.random() * VERTICAL_STEPS) * 5 + '%'; // 20 vertical steps
+          Math.floor(Math.random() * HORIZONTAL_STEPS) * 4 + '%'; // 30 horizontal steps
+        rain.style.top = Math.floor(Math.random() * VERTICAL_STEPS) * 10 + '%'; // 10 vertical steps
         rain.style.opacity =
           Math.random() * (OPACITY_RANGE[1] - OPACITY_RANGE[0]) +
           OPACITY_RANGE[0]; // Random opacity between 0.5 and 1
@@ -395,7 +395,7 @@
   <script>
     window.addEventListener('load', async () => {
       placeRandomGrass(100);
-      placeRandomRain(100);
+      placeRandomRain(50);
 
       const specialElements = [];
       insertGrassBlocks(49);
