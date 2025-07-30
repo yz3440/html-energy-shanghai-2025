@@ -294,7 +294,8 @@
       const locationBlock = document.createElement('div');
       locationBlock.className =
         'grass-block wide-block special-block green-text';
-      locationBlock.textContent = '中山公园 Zhongshan Park';
+      locationBlock.innerHTML =
+        '<s>中山公园 Zhongshan Park</s> <span>→ wigwam (☔🏠)</span>';
 
       const timeBlock = document.createElement('div');
       timeBlock.className = 'grass-block wide-block special-block green-text';
