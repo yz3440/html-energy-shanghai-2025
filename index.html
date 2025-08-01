@@ -116,7 +116,7 @@
       >
         <!-- 报名表单 -->
         <section class="max-w-md green-text m-auto lg:m-0">
-          <form id="rsvp-form" class="flex flex-col gap-2">
+          <form id="rsvp-form" class="flex flex-col gap-2 opacity-40">
             <fieldset class="garden-border px-4 pb-2">
               <legend class="px-2 dark-green-text text-center">
                 <span>*･｡.★ 加入公园 .:*･ﾟ Join the park .:*･ﾟ★</span>
@@ -128,6 +128,7 @@
                   id="email-input"
                   placeholder="✧･ﾟ: *✧･ﾟ:* "
                   required
+                  disabled
                 />
                 <div>← Email</div>
               </div>
@@ -138,13 +139,14 @@
                   id="name-input"
                   placeholder="⋆｡°✩ ⋆｡°✩"
                   required
+                  disabled
                 />
                 <div>← Name</div>
               </div>
 
               <div class="input-section">
                 <div>来吗？ →</div>
-                <select id="rsvp-status" class="w-42" required>
+                <select id="rsvp-status" class="w-42" required disabled>
                   <option value="">咋说? / Yeah?</option>
                   <option value="Going">确定会来/ Going</option>
                   <option value="Maybe">可能来 / Maybe</option>
@@ -158,15 +160,19 @@
               >
                 <div>｀、ヽ｀、<span class="hidden lg:inline">ヽ｀</span></div>
                 <button
-                  type="submit"
                   id="submit-button"
-                  class="cursor-pointer bg-gray-100 hover:bg-gray-200 border-2 border-gray-300 border-dashed w-38"
+                  class="bg-gray-100 border-2 border-gray-300 border-dashed w-38 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   提交 / Submit
                 </button>
                 <div class="-scale-100">
                   ｀、ヽ｀、<span class="hidden lg:inline">ヽ｀</span>
                 </div>
+              </div>
+              <div
+                class="flex flex-row justify-between items-center mb-2 dark-green-text"
+              >
+                <div class="flex-1 text-center text-xs">报名已截止</div>
               </div>
             </fieldset>
           </form>
@@ -180,8 +186,545 @@
 
   <!-- Functions -->
   <script>
+    const ACTIVE_PARTICIPANTS = [
+      {
+        Email: 'shengli@nyu.edu',
+        Name: 'shengli',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'joannalyu19@gmail.com',
+        Name: 'jo',
+        Color: '#FFFFFF',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'uminh1024@gmail.com',
+        Name: '越敏',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'yanjuanwu199511@gmail.com',
+        Name: 'emma',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'lke229@nyu.edu',
+        Name: 'leon',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'carrierong37@gmail.com',
+        Name: 'Carrie Rong',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'tony@creatorlens.asia',
+        Name: '托尼',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '943724212@qq.com',
+        Name: 'LuuuX',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'tianjin20s@gmail.com',
+        Name: 'tian',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'ceciliaxizi@gmail.com',
+        Name: 'cecilia',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'lisayang041@gmail.com',
+        Name: 'Lisa',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'ouzizhu@gmail.com',
+        Name: 'Zizhu',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'tnhsy@qq.com',
+        Name: 'Nicole',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: '3241937587@qq.com',
+        Name: 'Yuki',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'miajiayinfan@gmail.com',
+        Name: 'mia',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'miajiayinfan@gmail.com',
+        Name: 'mia',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'miajiayinfan@gmail.com',
+        Name: 'mia',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'liangjiayi7858@gmail.com',
+        Name: 'Jiayi',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'vistanny@gmail.com',
+        Name: 'vis',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'dennisdebel@chronusartcenter.org',
+        Name: 'Dennis',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'dennisdebel@chronusartcenter.org',
+        Name: 'Dennis',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'dennisdebel@chronusartcenter.org',
+        Name: 'Dennis',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '879948195@qq.com',
+        Name: 'WJ',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'xieyuanmo@126.com',
+        Name: 'Yuanmo',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'hw2929@nyu.edu',
+        Name: 'Wenwen',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '842655348@qq.com',
+        Name: '小草',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'baddoggy@qq.com',
+        Name: '坏狗',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'zhengkking@gmail.com',
+        Name: '开开',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'zhengkking@gmail.com',
+        Name: '开开',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'zhengkking@gmail.com',
+        Name: '开开',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'zhengkking@gmail.com',
+        Name: '开开',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: '312790042@qq.com',
+        Name: 'becky',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'piscesskybelle@gmail.com',
+        Name: 'Qi',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'zrliu94@outlook.com',
+        Name: '饼干',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'beinan.riyo@gmail.com',
+        Name: 'beinan',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'mshwmg.sw@gmail.com',
+        Name: '橘子',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'moyesama_m@163.com',
+        Name: '大壮',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'moyesama_m@163.com',
+        Name: '大壮',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'moyesama_m@163.com',
+        Name: '大壮',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'moyesama_m@163.com',
+        Name: '大壮',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '251899896@qq.com',
+        Name: 'doudou',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'monij.hsu@gmail.com',
+        Name: 'weiwei',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: '1098185296@qq.com',
+        Name: 'Misty',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: '1098185296@qq.com',
+        Name: 'Misty',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: '1821288052@qq.com',
+        Name: '夏锐',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'seashoreyang@outlook.com',
+        Name: 'seseok',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'lin.susan818@gmail.com',
+        Name: 'Kai',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'tengb11@gmail.com',
+        Name: 'teng',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'zhuziyuan.studio@gmail.com',
+        Name: 'Zoey Zhu',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'zhuziyuan.studio@gmail.com',
+        Name: 'Zoey Zhu',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'flora005.he@hotmail.com',
+        Name: '池',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'lqq20041024@163.com',
+        Name: '晴晴qq',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'lqq20041024@163.com',
+        Name: '晴晴qq',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: '727585952@qq.com',
+        Name: 'Paprika',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'yutongwang96@gmail.com',
+        Name: 'tt',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'jichaoyang0103@gmail.com',
+        Name: '鲍勃',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'jichaoyang0103@gmail.com',
+        Name: '鲍勃',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'ponivo.n.huang2@gmail.com',
+        Name: 'Ponivo',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'amyma0223@gmail.com',
+        Name: 'amy',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'pratibhacxy@gmail.com',
+        Name: 'simonepppp',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'yufeng-zhao@outlook.com',
+        Name: 'yufeng',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '18510380740@163.com',
+        Name: '平山、姜然',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'bonsoir@gmail.com',
+        Name: 'Zhejun',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'jaykaysun@msn.com',
+        Name: 'Jonathan Sun',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'fakepawpaw@gmail.com',
+        Name: '毛毛',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'shenpanzhimao@gmail.com',
+        Name: 'xiaohei',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'cw3902@nyu.edu',
+        Name: '吹',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'cw3902@nyu.edu',
+        Name: '吹',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'heinereugene@pm.me',
+        Name: 'yale.rkt',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'farshadj4213@gmail.com',
+        Name: 'Farshad',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '3258744676@qq.com',
+        Name: '茄子',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: '3258744676@qq.com',
+        Name: '茄子',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+      {
+        Email: 'huayuan2004@126.com',
+        Name: '世界独子',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'kim128328@gmail.com',
+        Name: 'kim',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'hexinyirona@gmail.com',
+        Name: 'Rona',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '1419574146@qq.com',
+        Name: 'Hayley',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '18321506146@163.com',
+        Name: '沈牧原',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '1398265197@qq.com',
+        Name: '1nuo',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: '1074352129@qq.com',
+        Name: 'Sihui',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'h38070721088@163.com',
+        Name: 'pumpkin',
+        Color: '#000000',
+        RSVP: 'Going',
+      },
+      {
+        Email: 'maggie.liu.e@gmail.com',
+        Name: 'Xiaotong',
+        Color: '#000000',
+        RSVP: 'Maybe',
+      },
+    ];
+
     const API_BASE_URL = 'https://html-energy-sh-2025.val.run';
-    const ALL_PARTICIPANTS = [];
+    const ALL_PARTICIPANTS = ACTIVE_PARTICIPANTS;
     const PARTICIPANT_EMAIL_INDICES_MAP = {};
 
     async function fetchRSVPs() {
@@ -193,6 +736,7 @@
         const allRSVPs = await response.json();
         console.log('Fetched RSVPs:', allRSVPs);
         ALL_PARTICIPANTS.push(...allRSVPs);
+        console.log('ALL_PARTICIPANTS:', ALL_PARTICIPANTS);
       } catch (error) {
         console.error('Failed to fetch RSVPs:', error);
         // Fallback to existing hardcoded names if API fails
@@ -401,13 +945,13 @@
       const specialElements = [];
       insertGrassBlocks(72);
 
-      await fetchRSVPs();
+      // await fetchRSVPs();
       console.log(ALL_PARTICIPANTS);
       updateGrassBlocks(ALL_PARTICIPANTS);
     });
 
-    document
-      .getElementById('submit-button')
-      .addEventListener('click', handleRSVPSubmission);
+    // document
+    //   .getElementById('submit-button')
+    //   .addEventListener('click', handleRSVPSubmission);
   </script>
 </html>
