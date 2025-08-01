@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TaiwanLOL: Puns You Didn’t Ask For</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>TaiwanLOL</h1>
+    <h2>
+      Puns You Didn’t Ask For
+      <span class="pig-emoji" role="img" aria-label="pig">🐷</span>
+    </h2>
+  </header>
+
+  <div id="jokeModule" style="text-align:center; margin: 20px;">
+    <button id="jokeBtn">給我一個爛哏</button>
+  </div>
+ 
+  <div id="jokeModule" style="text-align:center; margin: 20px;">
+    <p id="jokeText" class="typewriter">（這裡會出現讓你懷疑人生的笑話）</p>
+  </div>
+
+  
+
+  <!-- 拍照按钮 -->
+<div style="text-align: center; margin-top: 20px;">
+  <button id="snapBtn">拍下我的爛笑臉</button>
+</div>
+
+<!-- ✅ 摄像头实时画面 -->
+<div id="cameraContainer">
+  <video id="video" autoplay playsinline></video>
+</div>
+
+<!-- 😄 笑脸照片容器（别包住上面） -->
+<div id="smileContainer"></div>
+
+<!-- 隐藏画布（用于拍照） -->
+<canvas id="canvas" style="display: none;"></canvas>
+
+  
+  
+  
+
+  <video id="video" autoplay playsinline></video>
+  <canvas id="canvas"></canvas>
+
+  <div id="smileContainer"></div>
+
+  <button id="clearBtn" title="清空笑臉">×</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

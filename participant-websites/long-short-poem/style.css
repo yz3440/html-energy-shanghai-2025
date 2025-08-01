@@ -1,0 +1,19 @@
+* {
+  background-color: rgb(58, 131, 164);
+  height: 5000px;
+}
+
+#text {
+  color: #e4f00ff8;
+  font-size: 4vh;
+  text-shadow: 10px 10px 12px pink;
+}
+
+h1 {
+  height: 200px;
+}
+
+.dream {
+  font-size: smaller;
+  color: rgb(12, 201, 104);
+}

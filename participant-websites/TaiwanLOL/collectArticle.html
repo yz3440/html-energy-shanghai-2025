@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章文字变成可点击</title>
+    <style>
+        .clickable {
+            cursor: pointer; /* 鼠标悬停时显示手形光标 */
+        }
+    </style>
+</head>
+<body>
+    <div id="article">
+        A supplemental goal of this Code of Conduct is to increase open [source/culture/tech] citizenship by encouraging participants to recognize and strengthen the relationships between our actions and their effects on our community.
+
+
+    </div>
+
+    <script>
+        const article = document.getElementById('article');
+        const text = article.textContent;
+        article.textContent = ''; // 清空原来的内容
+
+        // 将每个字符变成一个可点击的 span 元素
+        text.split('').forEach(char => {
+            const span = document.createElement('span');
+            span.className = 'clickable';
+            span.textContent = char;
+            article.appendChild(span);
+        });
+
+        // 添加点击事件
+        document.querySelectorAll('.clickable').forEach(span => {
+            span.addEventListener('click', () => {
+                alert(`你点击了: ${span.textContent}`);
+            });
+        });
+    </script>
+</body>
+</html>

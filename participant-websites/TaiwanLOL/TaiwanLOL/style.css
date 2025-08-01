@@ -1,0 +1,164 @@
+body {
+  margin: 0; padding: 0; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff8dc; /* 淡黄色背景 */
+  overflow-x: hidden;
+  position: relative;
+  height: 100vh;
+  color: #6b4c3b;
+}
+
+header {
+  text-align: center;
+  user-select: none;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #d2691e; /* 巧克力色 */
+  animation: shake 1s infinite ease-in-out;
+  margin: 0;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.4rem;
+  color: #a0522d;
+  animation: shake 1s infinite ease-in-out;
+  margin: 0;
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pig-emoji {
+  font-size: 2.4rem;
+  user-select: none;
+}
+
+/* 抖动动画 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px) rotate(-5deg); }
+  40%, 80% { transform: translateX(5px) rotate(5deg); }
+}
+
+/* 打字机效果 */
+.typewriter {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #d2691e;
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #5a3e1b;
+  font-weight: 600;
+  min-height: 48px;
+  letter-spacing: 1.2px;
+}
+
+/* 按钮样式 */
+button {
+  font-size: 1.1rem;
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #ffbb00;
+  color: white;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+button:hover {
+  background: #ffe058;
+}
+
+/* 笑脸容器 */
+#smileContainer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+/* 笑脸图片 */
+.smileFace {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #ff9100;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(255, 191, 0, 0.929);
+  user-select: none;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+}
+
+.smileFace:hover {
+  transform: scale(1.3) rotate(10deg);
+  z-index: 1000;
+}
+
+/* 清空按钮 */
+#clearBtn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #ff4d4d;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff4d4daa;
+  line-height: 44px;
+  user-select: none;
+}
+#clearBtn:hover {
+  background: #cc0000;
+}
+
+/* 摄像头画面 */
+#video {
+  position: fixed;
+  bottom: 1050px;
+  right: 1320px;
+  width: 450px;
+  height: 275px;
+  border-radius: 12px;
+  border: 3px solid #ffcc00;
+  box-shadow: 0 0 10px rgba(255, 200, 0, 0.8);
+  background: black;
+  z-index: 9999;
+}
+
+/* 隐藏canvas */
+#canvas {
+  display: none;
+}
+
+#cameraContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#video {
+  width: 320px;
+  height: 240px;
+  border: 3px solid #ffae00;
+  border-radius: 12px;
+  background-color: black;
+  box-shadow: 0 0 10px rgba(255, 123, 0, 0.6);
+}
+
+
+

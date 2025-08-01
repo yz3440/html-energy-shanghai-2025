@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+  background: pink;
+  background: radial-gradient(cirlce, blue S, red, orange, green, greenyellow);
+}
+
+.rotating-text-container {
+  margin-top: 10%;
+  font-weight: bold;
+  color: #1c2a6e;
+  text-align: left;
+  transform-origin: center center;
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+/* 
+pai {
+font
+} */

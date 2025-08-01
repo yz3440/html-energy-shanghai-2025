@@ -11,6 +11,10 @@ body {
 
   --light-green-text-color: rgb(174, 237, 175);
 
+  --dark-blue-text-color: rgb(39, 48, 117);
+  --blue-text-color: rgb(71, 56, 169);
+  --blue-text-shadow-color: rgb(132, 118, 234);
+
   --garden-border-color: rgb(37, 118, 37);
   --garden-border-shadow-color: rgb(118, 234, 120);
 
@@ -83,6 +87,16 @@ body {
   text-shadow: 1px 1px 10px var(--green-text-shadow-color);
 }
 
+.dark-blue-text {
+  color: var(--dark-blue-text-color);
+  text-shadow: 1px 1px 10px var(--blue-text-shadow-color);
+}
+
+.blue-text {
+  color: var(--blue-text-color);
+  text-shadow: 1px 1px 10px var(--blue-text-shadow-color);
+}
+
 .green-gradient-bg {
   background: linear-gradient(
     0deg,
@@ -132,6 +146,29 @@ body {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(9, 1fr);
+}
+
+.pond {
+  background-color: #03a9f433;
+}
+
+.pond-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.pond-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border: 2px dotted var(--blue-text-color);
+  height: 100%;
+  width: 100%;
+  min-height: 3rem;
+  overflow: hidden;
 }
 
 .grass-block {

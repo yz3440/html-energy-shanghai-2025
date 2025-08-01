@@ -180,12 +180,89 @@
 
         <!-- 草坪 Grass field -->
         <div class="grass-field w-full h-full garden-border"></div>
+
+        <fieldset class="pond w-full garden-border">
+          <legend class="px-2 dark-blue-text text-center">
+            <span>*･｡.★ 网页池塘 .:*･ﾟ Websites ponds .:*･ﾟ★</span>
+          </legend>
+          <div class="pond-grid" id="pond-grid">
+            <!-- Website links will be dynamically inserted here -->
+          </div>
+        </fieldset>
       </section>
     </div>
   </body>
 
   <!-- Functions -->
   <script>
+    const WEBSITES_DATA = [
+      {
+        href: '/participant-websites/clean/clean.html',
+        name: 'clean.html',
+      },
+      {
+        href: '/participant-websites/dont wake up/dont wake up.html',
+        name: 'dont wake up.html',
+      },
+      {
+        href: '/participant-websites/Garden/garden.html',
+        name: 'garden.html',
+      },
+      {
+        href: '/participant-websites/HTML-DAY - 你今天吃了什麼/index.html',
+        name: '你今天吃了什麼',
+      },
+      {
+        href: '/participant-websites/html-open-day-2025-round-robin-dream-x/index.html',
+        name: 'dream x (round robin)',
+      },
+      {
+        href: '/participant-websites/HTML-Shanghai-TEMPLATE/index.html',
+        name: 'TEMPLATE',
+      },
+      {
+        href: '/participant-websites/jo-初音未来弹幕battle/jo-marquee-world.html',
+        name: 'jo-marquee-world.html',
+      },
+      {
+        href: '/participant-websites/long-short-poem/index.html',
+        name: 'long-short-poem',
+      },
+      {
+        href: '/participant-websites/New folder/<love ankles>.html',
+        name: '<love ankles>',
+      },
+      {
+        href: '/participant-websites/New folder/index.html',
+        name: 'index.html',
+      },
+      {
+        href: '/participant-websites/TaiwanLOL/collectArticle.html',
+        name: 'TaiwanLOL/collectArticle.html',
+      },
+      {
+        href: '/participant-websites/TaiwanLOL/TaiwanLOL/index.html',
+        name: 'TaiwanLOL/TaiwanLOL',
+      },
+      {
+        href: '/participant-websites/超酷SVG/yufeng-1.html',
+        name: '超酷SVG',
+      },
+      {
+        href: '/participant-websites/进入梦境游戏/index.html',
+        name: '进入梦境游戏',
+      },
+      {
+        href: '/participant-websites/collectArticle.html',
+        name: 'collectArticle.html',
+      },
+
+      {
+        href: 'https://awebsitethatdisplayseveryonesips.net/',
+        name: 'awebsitethatdisplayseveryonesips.net',
+      },
+    ];
+
     const ACTIVE_PARTICIPANTS = [
       {
         Email: 'shengli@nyu.edu',
@@ -860,6 +937,23 @@
       });
     }
 
+    function populatePondGrid() {
+      const pondGrid = document.getElementById('pond-grid');
+
+      WEBSITES_DATA.forEach((website) => {
+        const pondBlock = document.createElement('div');
+        pondBlock.className = 'blue-text hover:underline pond-block';
+
+        const link = document.createElement('a');
+        link.href = website.href;
+        link.target = '_blank';
+        link.textContent = website.name;
+
+        pondBlock.appendChild(link);
+        pondGrid.appendChild(pondBlock);
+      });
+    }
+
     function updateGrassBlocks(participants) {
       participants = participants.filter(
         (participant) =>
@@ -944,6 +1038,9 @@
 
       const specialElements = [];
       insertGrassBlocks(72);
+
+      // Populate the pond grid with website links
+      populatePondGrid();
 
       // await fetchRSVPs();
       console.log(ALL_PARTICIPANTS);

@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
+.rotating-text-container {
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  transform-origin: center center;
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+.container {
+  padding: 50px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container.left {
+  justify-content: start;
+}
+
+.flex-container.middle {
+  justify-content: center;
+}
+
+.flex-container.right {
+  justify-content: end;
+}
+
+.big-bubble {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(109, 126, 212);
+  border-radius: 20%;
+  border: 1px solid #ccc;
+  animation-duration: 5ms;
+  animation: spin 15s linear infinite;
+}
+
+.medium-bubble {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  border-radius: 50%;
+  border: 1px solid #bbb;
+  animation-range: 5ms;
+}
+
+.small-bubble {
+  width: 100px;
+  height: 100px;
+  background-color: lightskyblue;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+
+}
+
+.dream{
+  font-size: xx-large;
+  letter-spacing: 2cm;
+}
+
+.dream2{
+  font-size: small;
+  letter-spacing: 20cm;
+}
+
+
+body, html {
+  background: #000;
+  color: #FFD600;
+}
+/* Make sure all text elements inherit the yellow color */
+a, p, div, span, h1, h2, h3, h4, h5, h6 {
+  color: #FFD600;
+}
+
+.spaceship {
+  position: fixed;
+  top: 10%;
+  left: 60%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  animation: spaceship-float 4s ease-in-out infinite alternate;
+}
+
+@keyframes spaceship-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-30px); }
+}
+
+.spaceship-text {
+  color: #FFD600;
+  font-family: monospace;
+  font-size: 1.1rem;
+  margin-top: 2px;
+  text-shadow: 0 0 8px #FFD600, 0 0 2px #fff;
+  letter-spacing: 2px;
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="页面简短描述" />
+    <meta name="keywords" content="关键词1, 关键词2, 关键词3" />
+    <meta name="author" content="您的姓名" />
+
+    <title>标题</title>
+
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- 内联CSS -->
+    <style>
+      svg {
+        border-style: dashed;
+        border-width: 2px;
+      }
+
+      .text-annotation {
+        font: bold 10px sans-serif;
+      }
+
+      .up-and-down {
+        animation-name: up-and-down-animation;
+        animation-duration: 8s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes up-and-down-animation {
+        0%,
+        12.5%,
+        87.5%,
+        100% {
+          transform: translateY(220px);
+        }
+        37.5%,
+        50%,
+        62.5% {
+          transform: translateY(-160px);
+        }
+      }
+
+      .sky-color {
+        animation-name: sky-color-animation;
+        animation-duration: 8s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+      @keyframes sky-color-animation {
+        0%,
+        12.5%,
+        87.5%,
+        100% {
+          fill: black;
+        }
+
+        37.5%,
+        50%,
+        62.5% {
+          fill: orange;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 主要内容 -->
+    <main>
+      <h1>我的超酷SVG画布 （800 x 800)</h1>
+      <p style="font: 'KaiTi'">
+        你知道吗，SVG的全称是Scalable Vector Graphics (可缩放的矢量图）。
+      </p>
+      <p>哦？你知道？？</p>
+      <p>
+        那你肯定不知道：SVG还是挪威的一个机场，<a
+          href="https://en.wikipedia.org/wiki/Stavanger_Airport"
+          target="_blank"
+          >Stavanger Airport (SVG)</a
+        >。
+      </p>
+      <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="800" height="800" class="sky-color"></rect>
+
+        <!-- GRADIENT DEF -->
+        <defs>
+          <radialGradient id="circleGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color: #ff6b6b; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #4ecdc4; stop-opacity: 1" />
+          </radialGradient>
+        </defs>
+        <!-- SUN -->
+        <circle
+          cx="400"
+          cy="400"
+          r="200"
+          class="up-and-down"
+          fill="url(#circleGradient)"
+        ></circle>
+
+        <!-- WATER LEVEL -->
+        <g>
+          <path
+            d="M 800 800
+         L 0 800
+         L 0 400
+         C 300 300 500 500 800 400
+         L 800 400
+         "
+            fill="#aaaaff"
+          ></path>
+
+          <path
+            d="M 800 800
+         L 0 800
+         L 0 400
+         C 400 400 500 600 800 400
+         L 800 400
+         "
+            fill="#0000ff"
+          ></path>
+
+          <path
+            d="M 800 800
+         L 0 800
+         L 0 400
+         C 400 500 500 700 800 400
+         L 800 400
+         "
+            fill="#0000aa"
+          ></path>
+
+          <path
+            d="M 800 800
+         L 0 800
+         L 0 400
+         C 400 600 500 800 800 400
+         L 800 400
+         "
+            fill="#000088"
+          ></path>
+        </g>
+        <!-- COORDINATE HELPER -->
+        <g>
+          <!-- CENTER -->
+          <!-- <circle cx="400" cy="400" r="20" fill="red"></circle> -->
+
+          <!-- TOP LEFT -->
+          <g>
+            <circle cx="0" cy="0" r="48" fill="black"></circle>
+            <text
+              text-anchor="start"
+              dx="0"
+              dy="12"
+              fill="white"
+              class="text-annotation"
+            >
+              0,0
+            </text>
+          </g>
+
+          <!-- TOP RIGHT -->
+          <g>
+            <circle cx="800" cy="0" r="48" fill="black"></circle>
+            <text
+              text-anchor="end"
+              dx="800"
+              dy="12"
+              fill="white"
+              class="text-annotation"
+            >
+              800,0
+            </text>
+          </g>
+
+          <!-- BOTTOM LEFT -->
+          <g>
+            <circle cx="0" cy="800" r="48" fill="black"></circle>
+            <text
+              text-anchor="start"
+              dx="0"
+              dy="788"
+              fill="white"
+              class="text-annotation"
+            >
+              0,800
+            </text>
+          </g>
+
+          <!-- BOTTOM RIGHT -->
+          <g>
+            <circle cx="800" cy="800" r="48" fill="black"></circle>
+            <text
+              text-anchor="end"
+              dx="800"
+              dy="788"
+              fill="white"
+              class="text-annotation"
+            >
+              800,800
+            </text>
+          </g>
+        </g>
+      </svg>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+      <p><b>&copy; 2025 我的超酷SVG画布。保留所有权利。</b></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // 在这里添加您的JavaScript代码
+    </script>
+  </body>
+</html>
